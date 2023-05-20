@@ -1,0 +1,144 @@
+@use '../base/variables' as v;
+@use '../base/mixins' as m;
+
+.contenedor {
+    margin: 3rem 0;
+    width: 90%;
+    max-width: 120rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    @include m.tablet {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include m.desktopXL {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        gap: 2rem;
+        margin: 0;
+    }
+}
+
+.daniel {
+    background-image: url(/images/bg-pattern-quotation.svg);
+    background-repeat: no-repeat;
+    background-position: top right 40px;
+    background-color: v.$moderateViolet;
+
+    @include m.tablet {
+        grid-column: 1 / 3;
+    }
+}
+
+.perfil {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    &-info {
+        h1 {
+            font-size: 1.4rem;
+            margin: 0;
+            color: v.$lightGrayBlue;
+        }
+
+        h2 {
+            font-size: 1.2rem;
+            margin: 0;
+            color: v.$verifiGraduate;
+            font-weight: 500;
+        }
+    }
+
+    .fotodaniel,
+    .fotopatrick {
+        border: 2px solid #A57ED1;
+    }
+
+    .fotojonathan,
+    .fotojeanette,
+    .fotokira {
+        border: 2px solid #FFFFFF;
+    }
+
+    &-info2 {
+        @extend .perfil-info;
+
+        h1 {
+            color: v.$vdBlackBlue;
+        }
+
+        h2 {
+            color: v.$parrafoQuote2;
+        }
+    }
+
+}
+
+.jonathan {
+    background-color: v.$vdGrayBlue;
+}
+
+.patrick {
+    background-color: v.$vdBlackBlue;
+}
+
+.daniel,
+.jonathan,
+.patrick {
+    border-radius: 1rem;
+    padding: 3rem;
+
+    h3 {
+        color: v.$white;
+        font-size: 2rem;
+    }
+
+    p {
+        color: v.$parrafoQuotes;
+        margin-bottom: 0;
+    }
+}
+
+.jeanette,
+.kira {
+    border-radius: 1rem;
+    padding: 3rem;
+
+    h3 {
+        color: v.$vdBlackBlue;
+        font-size: 2rem;
+    }
+
+    p {
+        color: v.$parrafoQuote2;
+        margin-bottom: 0;
+    }
+}
+
+.jeanette {
+    background: v.$white;
+
+    @include m.desktopXL {
+        columns: 1 / 2;
+    }
+}
+
+.patrick {
+    @include m.desktopXL {
+        grid-column: 2 / 4;
+    }
+}
+
+.kira {
+    background-color: v.$white;
+
+    @include m.desktopXL {
+        grid-column: 4 / 5;
+        grid-row: 1 / 3;
+    }
+}
